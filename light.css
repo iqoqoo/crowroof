@@ -6,7 +6,7 @@ body {
   font-family: 'Jost', sans-serif;
   font-weight: 700;
   overflow-x: auto;
-  margin: 200px 50px 170px 50px;
+  margin: 35vw 50px 170px 50px;
 }
 
 /* ===== レイアウト・構造 ===== */
@@ -117,7 +117,7 @@ body {
 
 #prevRow span,
 #nextRow span {
-  font-size: 35px;
+  font-size: 45px;
   letter-spacing: 2px;;
   background: linear-gradient(125deg, #ffbde3, #d8deff, #a2ffed);
   background-clip: text;
@@ -130,8 +130,8 @@ body {
 /* ===== フローティングカウンター ===== */
 .floating-counter {
   position: fixed;
-  top: 3%;
-  right: 3%;
+  top: 0%;
+  right: 0%;
   width: 25vw;
   height: 25vw;
   padding: 8px 12px;
@@ -147,6 +147,7 @@ body {
   background: linear-gradient(125deg, #ffbde3ee, #d8deffee, #a2ffedee);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  transform: scale(.7);
 }
 
 .floating-counter::before {

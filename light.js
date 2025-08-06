@@ -129,8 +129,8 @@ document.querySelectorAll(".button-glow").forEach((button) => {
         sparkle.style.width = "10px";
         sparkle.style.height = "10px";
       } else {
-        sparkle.style.width = "18px";
-        sparkle.style.height = "18px";
+        sparkle.style.width = "20px";
+        sparkle.style.height = "20px";
       }
 
       sparkle.style.left = `${centerX}px`;
