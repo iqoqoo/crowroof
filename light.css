@@ -130,10 +130,10 @@ body {
 /* ===== フローティングカウンター ===== */
 .floating-counter {
   position: fixed;
-  top: 0%;
-  right: 0%;
-  width: 25vw;
-  height: 25vw;
+  top: 3%;
+  right: 3%;
+  width: 20vw;
+  height: 20vw;
   padding: 8px 12px;
   display: flex;
   flex-direction: column;
@@ -147,20 +147,19 @@ body {
   background: linear-gradient(125deg, #ffbde3ee, #d8deffee, #a2ffedee);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  transform: scale(.7);
 }
 
 .floating-counter::before {
   content: "count";
   position: absolute;
-  top: 4vw;
+  top: 2.5vw;
   left: auto;
   right: auto;
   font-size: 3vw;
 }
 
 .floating-counter span {
-  margin-top: 5vw;;
+  margin-top: 2.5vw;;
 }
 
 /* ===== 汎用ボタンエリア ===== */
@@ -179,7 +178,7 @@ body {
   align-items: center;
   flex-wrap: nowrap;
   color: #fff;
-  margin-top: -1vw;
+  margin-top: -2vw;
 }
 
 #globalJumpInput {
