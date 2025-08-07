@@ -6,7 +6,7 @@ body {
   font-family: 'Jost', sans-serif;
   font-weight: 700;
   overflow-x: auto;
-  margin: 35vw 50px 170px 50px;
+  margin: 23vw 50px 170px 50px;
 }
 
 /* ===== レイアウト・構造 ===== */
@@ -24,7 +24,7 @@ body {
   justify-content: center;
   align-items: flex-end; /* 画像を下揃え */
   flex-wrap: nowrap;
-  gap: 40px;
+  gap: 50px;
 }
 
 .grid-wrapper {
@@ -35,17 +35,18 @@ body {
 /* ===== 画像とハイライト ===== */
 .grid-image {
   display: block;
-  max-width: 100%;
+  width: auto;
   height: auto;
+  max-height: none;
 }
+
 
 .highlight-overlay {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 0px;
   width: 100%;
   background: linear-gradient(125deg, #ffbde3, #d8deff, #a2ffed);
-  background-color: rgba(255, 255, 0, 0.4);
   mix-blend-mode: multiply;
   pointer-events: none;
   transition: top 0.2s ease;
@@ -54,9 +55,11 @@ body {
 
 /* ===== セレクトエリア ===== */
 .select_area {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 7px;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+	align-items: center;
+  margin-top: 8px;
   white-space: nowrap;
 }
 
@@ -64,6 +67,8 @@ body {
   color: #fff;
   background-color: #efeef9;
   border: none;
+  font-family: 'Jost', sans-serif;
+  font-weight: 700;
 }
 
 .jump-input {
@@ -94,31 +99,29 @@ body {
   padding: 2px;
   z-index: 99;
   background: linear-gradient(125deg, #ffbde3, #d8deff, #a2ffed);
-  background-color: #fff;
 }
 
 #nextRow,
-#prevRow {
+#prevRow{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
+}
+#nextRow{
+  width: 60%;
+  margin-right: 2px;
+  background: #fff;
+}
+#prevRow{
+  width: 20%;
   background: #fff;
 }
 
-#nextRow {
-  width: calc(70% - 6px);
-  margin-right: 2px;
-}
-
-#prevRow {
-  width: 30%;
-}
-
 #prevRow span,
-#nextRow span {
+#nextRow span{
   font-size: 45px;
-  letter-spacing: 2px;;
+  letter-spacing: 2px;
   background: linear-gradient(125deg, #ffbde3, #d8deff, #a2ffed);
   background-clip: text;
   -webkit-background-clip: text;
@@ -127,11 +130,37 @@ body {
   transition: all 0.2s ease;
 }
 
+#save{
+  position: relative;
+  width: 10%;
+}
+  #save ::after{
+    position: absolute;
+    content: "/";
+    top: 25px;
+    left: 94%;
+  }
+
+#load{
+  width: 10%;
+}
+
+#save,#load {
+  font-size: 2vw;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  font-family: 'Jost', sans-serif;
+}
+
+
+
 /* ===== フローティングカウンター ===== */
 .floating-counter {
   position: fixed;
-  top: 3%;
-  right: 3%;
+  top: 1%;
+  right: .5%;
   width: 20vw;
   height: 20vw;
   padding: 8px 12px;
@@ -144,7 +173,7 @@ body {
   font-family: 'Jost', sans-serif;
   font-size: 10vw;
   font-weight: bold;
-  background: linear-gradient(125deg, #ffbde3ee, #d8deffee, #a2ffedee);
+  background: linear-gradient(125deg, #ffbde3, #d8deff, #a2ffed);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
@@ -155,7 +184,7 @@ body {
   top: 2.5vw;
   left: auto;
   right: auto;
-  font-size: 2.5vw;
+  font-size: 2vw;
 }
 
 .floating-counter span {
@@ -182,21 +211,24 @@ body {
 }
 
 #globalJumpInput {
-  width: 4vw;
-  height: 2vw;
-  margin-left: 10px;
-  font-size: 2vw;
+  width: 2.5vw;
+  height: 1.5vw;
+  margin-right: .5vw;
+  font-size: 1.5vw;
+  font-weight: 700;
   color: #fff;
   background-color: transparent;
   border: 1px solid #fff;
 }
 
 #globalJumpBtn {
-  font-size: 2vw;
+  font-size: 1.5vw;
   color: #fff;
   background-color: transparent;
   border: none;
+  font-family: 'Jost', sans-serif;
 }
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -214,7 +246,12 @@ input[type="number"]:focus {
 .button-glow {
   position: relative;
   overflow: visible;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  outline: none;
 }
+
 
 /* 文字が光るアニメ */
 .button-glow span.glow {
