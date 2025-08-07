@@ -137,7 +137,7 @@ body {
   #save ::after{
     position: absolute;
     content: "/";
-    top: 25px;
+    top: 30px;
     left: 94%;
   }
 
