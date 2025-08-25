@@ -22,7 +22,8 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-end; /* 画像を下揃え */
+  align-items: flex-end;
+  /* 画像を下揃え */
   flex-wrap: nowrap;
   gap: 50px;
 }
@@ -55,15 +56,15 @@ body {
 
 /* ===== セレクトエリア ===== */
 .select_area {
-	display: flex;
-	flex-wrap: nowrap;
-	justify-content: flex-end;
-	align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
   margin-top: 8px;
   white-space: nowrap;
 }
 
-.select_area > button {
+.select_area>button {
   color: #fff;
   background-color: #efeef9;
   border: none;
@@ -102,24 +103,26 @@ body {
 }
 
 #nextRow,
-#prevRow{
+#prevRow {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
 }
-#nextRow{
+
+#nextRow {
   width: 60%;
   margin-right: 2px;
   background: #fff;
 }
-#prevRow{
+
+#prevRow {
   width: 20%;
   background: #fff;
 }
 
 #prevRow span,
-#nextRow span{
+#nextRow span {
   font-size: 45px;
   letter-spacing: 2px;
   background: linear-gradient(125deg, #ffbde3, #d8deff, #a2ffed);
@@ -130,22 +133,24 @@ body {
   transition: all 0.2s ease;
 }
 
-#save{
+#save {
   position: relative;
   width: 10%;
 }
-  #save ::after{
-    position: absolute;
-    content: "/";
-    top: 30px;
-    left: 94%;
-  }
 
-#load{
+#save ::after {
+  position: absolute;
+  content: "/";
+  top: 30px;
+  left: 94%;
+}
+
+#load {
   width: 10%;
 }
 
-#save,#load {
+#save,
+#load {
   font-size: 2vw;
   font-weight: 700;
   color: #ffffff;
@@ -188,7 +193,8 @@ body {
 }
 
 .floating-counter span {
-  margin-top: 2vw;;
+  margin-top: 2vw;
+  ;
 }
 
 /* ===== 汎用ボタンエリア ===== */
@@ -234,6 +240,7 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 input[type="number"]:focus {
   outline: none;
   box-shadow: 0 0 0 2px #a2ffed;
@@ -263,10 +270,12 @@ input[type="number"]:focus {
     text-shadow: 0 0 0px rgba(255, 255, 255, 0);
     transform: scale(1);
   }
+
   50% {
     text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
     transform: scale(1);
   }
+
   100% {
     text-shadow: 0 0 0px rgba(255, 255, 255, 0);
     transform: scale(1);
@@ -282,19 +291,17 @@ input[type="number"]:focus {
   animation: sparkleAnim 1s;
   z-index: 999;
   opacity: 0.9;
-  clip-path: polygon(
-    50% 0%,
-    61% 35%,
-    98% 35%,
-    68% 57%,
-    79% 91%,
-    50% 70%,
-    21% 91%,
-    32% 57%,
-    2% 35%,
-    39% 35%
-  );
-transform: translate(-50%, -50%) translate(var(--x), var(--y));
+  clip-path: polygon(50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%);
+  transform: translate(-50%, -50%) translate(var(--x), var(--y));
 }
 
 @keyframes sparkleAnim {
@@ -302,8 +309,14 @@ transform: translate(-50%, -50%) translate(var(--x), var(--y));
     transform: translate(0, 0) scale(1) rotate(0deg);
     opacity: 1;
   }
+
   100% {
     transform: translate(var(--x), var(--y)) scale(.7) rotate(100deg);
     opacity: 0;
   }
+}
+
+element.style {
+  height: auto;
+  width: auto;
 }

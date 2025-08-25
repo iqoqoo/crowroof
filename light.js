@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   let currentGlobalRow = 1;
 
-  const rowPixelHeight = 41; // ← ここで調整
+  const rowPixelHeight = 21; // ← ここで調整
 
 // div要素でもOK！
 const saveBtn = document.getElementById("save");
