@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   let currentGlobalRow = 1;
 
-  const rowPixelHeight = 40; // ← ここで調整
+  const rowPixelHeight = 41; // ← ここで調整
 
 // div要素でもOK！
 const saveBtn = document.getElementById("save");
@@ -52,6 +52,18 @@ loadBtn.addEventListener("click", () => {
   });
 
   alert("読み込みました！");
+  document.getElementById("load").addEventListener("click", () => {
+  const saveData = JSON.parse(localStorage.getItem("highlightSave") || "{}");
+
+  document.querySelectorAll(".grid-wrapper").forEach(wrapper => {
+    const id = wrapper.dataset.id || wrapper.querySelector('.grid-image')?.src || '';
+    if (id && saveData[id]) {
+      wrapper.dataset.currentRow = saveData[id];
+      updateHighlight(wrapper);
+    }
+  });
+});
+
 });
 
 
@@ -73,7 +85,7 @@ wrappers.forEach((wrapper) => {
   overlay.style.top = `${(rows - currentRow) * rowHeight}px`;
 });
 
-
+//自動保存
   function updateAllRows(globalRow) {
     wrappers.forEach((wrapper) => {
       const totalRows = parseInt(wrapper.dataset.rows, 10);
@@ -91,6 +103,38 @@ wrappers.forEach((wrapper) => {
     currentGlobalRow = globalRow;
     counterDisplay.textContent = currentGlobalRow;
   }
+  document.getElementById("nextRow").addEventListener("click", () => {
+  document.querySelectorAll(".grid-wrapper").forEach(wrapper => {
+    let currentRow = parseInt(wrapper.dataset.currentRow || "1", 10);
+    const maxRow = parseInt(wrapper.dataset.rows || "1", 10);
+    if (currentRow < maxRow) {
+      currentRow++;
+      wrapper.dataset.currentRow = currentRow;
+      updateHighlight(wrapper); // 既存のハイライト更新
+      autoSaveProgress();       // ←ここで自動保存
+    }
+  });
+});
+
+
+
+
+  function autoSaveProgress() {
+  const wrappers = document.querySelectorAll('.grid-wrapper');
+  const saveData = {};
+
+  wrappers.forEach(wrapper => {
+    const id = wrapper.dataset.id || wrapper.querySelector('.grid-image')?.src || '';
+    const currentRow = parseInt(wrapper.dataset.currentRow || '1', 10);
+    if (id) {
+      saveData[id] = currentRow;
+    }
+  });
+
+  localStorage.setItem('highlightSave', JSON.stringify(saveData));
+}
+
+  
 
   // 画像が読み込み済み or 読み込み時にハイライト初期化
   wrappers.forEach((wrapper) => {
